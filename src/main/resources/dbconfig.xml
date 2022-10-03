@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GST>
+  <DataSource id="CinchyERP" name="新記ERP測試機">
+    <CacheStatement>true</CacheStatement>
+    <CacheStatementSize>250</CacheStatementSize>
+    <CacheStatementSqlLimit>2048</CacheStatementSqlLimit>
+    <Open>false</Open>
+    <Password>1234</Password>
+    <URL>jdbc:sqlserver://localhost:1433;databaseName=gstmes</URL>
+    <User>mesadm</User>
+  </DataSource>
+</GST>

@@ -1,0 +1,102 @@
+:root {
+  --app-bar-height: var(--lumo-size-l);
+
+  /* 放寬導航欄寬度 */
+  /* --navi-drawer-width: calc(var(--lumo-size-m) * 7); */
+  --navi-drawer-width: calc(var(--lumo-size-m) * 12);
+
+  --navi-drawer-rail-width: calc(var(--lumo-size-m) * 1.75);
+  --navi-item-indentation: calc(var(--lumo-icon-size-s) + var(--lumo-space-l));
+
+  --details-drawer-width: calc(var(--lumo-size-m) * 11);
+
+  --transition-duration-s: 160ms;
+  --transition-duration-m: 240ms;
+  --transition-duration-l: 320ms;
+
+  /* Responsive sizing and spacing */
+  --lumo-space-r-m: var(--lumo-space-m);
+  --lumo-space-r-l: var(--lumo-space-l);
+  --lumo-space-r-x: var(--lumo-space-l);
+  --lumo-space-wide-r-m: var(--lumo-space-wide-m);
+  --lumo-space-wide-r-l: var(--lumo-space-wide-l);
+}
+
+@media (max-width: 479px) {
+  :root {
+    --lumo-space-r-x: 0;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+  :root {
+    --lumo-space-r-x: var(--lumo-space-m);
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --lumo-space-r-m: var(--lumo-space-s);
+    --lumo-space-r-l: var(--lumo-space-m);
+    --lumo-space-wide-r-m: var(--lumo-space-wide-s);
+    --lumo-space-wide-r-l: var(--lumo-space-wide-m);
+  }
+}
+
+/* baastec customization */
+@font-face {
+  font-family: custom-jhenghei;
+  src: local("微軟正黑體"), local("Microsoft JhengHei"), local("Heiti TC");
+  unicode-range: U+4E00-9FFF;
+}
+
+/* baastec customization */
+@font-face {
+  font-family: custom-jhenghei;
+  src: local(AppleGothic), local(Helvetica), local(Segoe UI);
+  unicode-range: U+00-024F;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  /* baastec customization */
+  font-family: custom-jhenghei;
+  font-size: 13px;
+}
+
+.root {
+  /* background-color: var(--lumo-contrast-5pct); */
+}
+
+.app-header-outer, .app-footer-outer {
+  z-index: 3;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}

@@ -1,0 +1,48 @@
+/*
+ styles for VDConfirmDialog child components
+*/
+
+/* defualt dialog background */
+:host([theme~="dcsplab-confirm-dialog"]) [part="overlay"] {
+  width: 350px;
+  height: 150px;
+  background: rgba(35,20,30,0.8);
+}
+
+/* message title */
+:host([theme~="spacing"]:not([dir="rtl"])) ::slotted(.confirm-dialog-title)  {
+  /* overflow: auto; */
+  color: rgb(212, 252, 255);
+}
+
+/* message content */
+:host([theme~="spacing"]:not([dir="rtl"]))  ::slotted(.confirm-dialog-message)  {
+  overflow: auto;
+  color: rgb(255, 252, 214);
+}
+
+/* footer confirm button */
+:host(.confirm-ok) {
+  color: #FFF;
+  background-color: rgb(10 141 249 / 50%);
+}
+
+/* footer cancel button */
+:host(.confirm-cancel) {
+  color: #FFF;
+  background-color: rgb(10 141 249 / 50%);
+}
+
+/* footer delete button */
+/*
+:host(.confirm-delete) {
+  color: red;
+  background-color: rgb(10 141 249 / 50%);
+}
+
+:host(.cancel-delete) {
+  color: green;
+  background-color: rgb(10 141 249 / 50%);
+}*/
+
+

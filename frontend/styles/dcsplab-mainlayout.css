@@ -1,0 +1,70 @@
+
+html,body,pre,code {
+  /* baastec customization */
+  font-family: custom-jhenghei;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-smooth:always; -webkit-font-smoothing: antialiased;
+
+  /* not working for overall background */
+  /*--gradient-base-color: -webkit-linear-gradient(to right, #757F9A, #D7DDE8);
+  --gradient-base-color: linear-gradient(to right, #757F9A, #D7DDE8);*/
+
+  /* --lumo-base-color: #757F9A;  fallback for old browsers
+  --lumo-base-color: var(--gradient-base-color);*/
+
+
+  --lumo-base-color: rgb(248,255,255);
+  --lumo-body-text-color: rgb(2 25 29);
+  --lumo-primary-color: hsl(214, 90%, 52%);
+}
+
+.app-bar__title h1,h2,h3,h4,h5,h6 {
+  font-weight: 200;
+}
+
+.dcsplab-vertical-section {
+  /* border: 1px solid rgb(205	238	242); */
+  padding: 3px;
+}
+
+.dcsplab-horizontal-section {
+  /* border: 1px solid rgb(205	238	242); */
+  padding: 3px;
+}
+
+.baastec-bulletin-layout {
+  margin-right: 15px;
+  border: 1px solid rgb(147 147 255);
+  width: 300px;
+}
+
+.baastec-bulletin-note {
+    color: #fddca0;
+    width: 200px;
+    font-size: var(--lumo-font-size-m);
+
+    /* transition: opacity 2s ease-in; */
+    /* transition: color 1s ease-in; */
+
+    animation: fadeIn linear 2s;
+
+    -webkit-animation: fadeIn linear 2s;
+    -moz-animation: fadeIn linear 2s;
+    -o-animation: fadeIn linear 2s;
+    -ms-animation: fadeIn linear 2s;
+}
+
+/* vaadin-notification-card */
+:host [part="overlay"] {
+  color: #FFFFFF;
+  background-color: rgb(47 58 135 / 80%) !important;
+}
+
+/* connection error Notification card style */
+.v-reconnect-dialog {
+  color: #FFFFFF;
+  background-color: rgb(199,58,117,0.8); /*#C73A75;*/
+  border-radius: 5px;
+}

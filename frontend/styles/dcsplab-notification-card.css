@@ -1,0 +1,6 @@
+
+/* vaadin-notification-card */
+:host [part="overlay"] {
+  color: #FFFFFF;
+  background-color: rgb(47 58 135 / 80%) !important;
+}

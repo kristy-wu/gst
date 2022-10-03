@@ -1,0 +1,78 @@
+
+/* vaadin-login-overlay-wrapper */
+:host [part="backdrop"] {
+  background-image: url(images/login-overlay.jpeg);
+  background-size: cover;
+}
+
+:host [part="card"] {
+  /* background: rgba(2,3,38,0.8); */
+  background: rgba(3,0,10,0.7);
+}
+
+:host [part="brand"] {
+  background: rgba(0,0,0,0);
+}
+
+:host [part="form"] {
+  background: rgba(0,0,0,0);
+}
+
+/* vaadin-login-form-wrapper */
+:host [part="vaadin-login-native-form-wrapper"] {
+  background: radial-gradient(black, transparent);
+}
+
+:host([theme~="with-overlay"]) {
+  background: rgba(0,0,0,0);
+}
+
+:host [part="form-title"] {
+  color: #FFF
+}
+
+:host(vaadin-login-form-wrapper) [part="error-message"] {
+  background: rgb(40 11 11 / 65%);
+}
+
+/* vaadin-text-field */
+:host(vaadin-text-field#vaadinLoginUsername) [part="label"] {
+  color: #FFF;
+}
+
+:host(vaadin-text-field#vaadinLoginUsername ) [slot="input"] {
+  color: #FFF;
+  background: rgb(84 76 209 / 60%);
+}
+
+:host(vaadin-text-field#vaadinLoginUsername) [part="input-field"] {
+  color: #FFF;
+  background: rgb(204 222 237 / 60%);
+}
+
+/* vaadin-password-field */
+:host(vaadin-password-field#vaadinLoginPassword) [part="label"] {
+  color: #FFF;
+}
+
+:host(vaadin-password-field#vaadinLoginPassword) [slot="input"] {
+ color: #FFF;
+ background: rgb(84 76 209 / 60%);
+}
+
+:host(vaadin-password-field#vaadinLoginPassword) [part="input-field"] {
+ color: #FFF;
+ background: rgb(204 222 237 / 60%);
+}
+
+:host(:hover:not([readonly]):not([focused])) [part="label"],
+:host(:hover:not([readonly])) [part="helper-text"],
+:host(:hover:not([readonly])) [part="helper-text"] ::slotted(*) {
+  color: #1676f3;
+}
+
+/* for vaadin-button
+:host([theme~="primary"]) {*/
+:host([part~="vaadin-login-submit"]) {
+  background-color: rgb(10 141 249 / 50%);
+}

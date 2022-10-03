@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.gst.mes</groupId>
+  <artifactId>gst-base</artifactId>
+  <name>gstmes</name>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <!-- <version>2.2.6.RELEASE</version> -->
+    <version>2.6.4</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+
+    <!-- <vaadin.version>14.1.25</vaadin.version>
+    <vaadin.version>14.3.3</vaadin.version>
+    <jetty.version>9.4.15.v20190215</jetty.version> -->
+    <vaadin.version>14.8.4</vaadin.version>
+    <jetty.version>9.4.36.v20210114</jetty.version>
+  </properties>
+
+  <pluginRepositories>
+    <!-- Repository needed for using Vaadin prerelease versions <pluginRepository>
+      <id>vaadin-prereleases</id> <url>https://maven.vaadin.com/vaadin-prereleases</url>
+      </pluginRepository> -->
+  </pluginRepositories>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>vaadin-addons</id>
+      <url>https://maven.vaadin.com/vaadin-addons</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <!-- Repository needed for using Vaadin prerelease versions <repository>
+      <id>vaadin-prereleases</id> <url>https://maven.vaadin.com/vaadin-prereleases</url>
+      </repository> -->
+
+    <repository>
+      <id>spring-milestone</id>
+      <name>Spring Maven MILESTONE Repository</name>
+      <url>https://repo.spring.io/libs-milestone</url>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-bom</artifactId>
+        <type>pom</type>
+        <scope>import</scope>
+        <version>${vaadin.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-bom</artifactId>
+        <version>2021.1.4</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <!-- Replace artifactId with vaadin-core to use only free components -->
+      <!-- <artifactId>vaadin</artifactId> -->
+      <artifactId>vaadin-core</artifactId>
+      <exclusions>
+        <!-- Webjars are only needed when running in Vaadin 13 compatibility
+          mode -->
+        <exclusion>
+          <groupId>com.vaadin.webjar</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.webjars.bowergithub.insites</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.webjars.bowergithub.polymer</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.webjars.bowergithub.polymerelements</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.webjars.bowergithub.vaadin</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.webjars.bowergithub.webcomponents</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-testbench</artifactId>
+      <scope>test</scope>
+    </dependency>
+    -->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- Added to provide logging output as Flow uses -->
+    <!-- the unbound SLF4J no-operation (NOP) logger implementation -->
+    <!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-simple</artifactId>
+      </dependency> -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-spring-boot-starter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Spring Security -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-redis</artifactId>
+      <version>2.6.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>3.7.1</version>
+    </dependency> -->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-pool2</artifactId>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>io.lettuce</groupId>
+      <artifactId>lettuce-core</artifactId>
+      <version>6.1.8.RELEASE</version>
+    </dependency> -->
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>4.2.2</version>
+    </dependency> -->
+
+    <!-- https://mvnrepository.com/artifact/org.rapidpm/rapidpm-functional-reactive -->
+    <dependency>
+      <groupId>org.rapidpm</groupId>
+      <artifactId>rapidpm-functional-reactive</artifactId>
+      <version>01.00.07-RPM</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <!--<scope>9.4.0.jre11</scope>-->
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- spring's support for quartz -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+    <dependency>
+      <groupId>org.quartz-scheduler</groupId>
+      <artifactId>quartz</artifactId>
+      <version>2.3.2</version>
+    </dependency>
+
+    <!--
+    ZXing (“zebra crossing”) is an open-source, multi-format 1D/2D
+    barcode image processing library implemented in Java,
+    with ports to other languages.
+    This is the main library that supports QR codes in Java.
+    -->
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>com.vaadin.componentfactory</groupId>
+      <artifactId>explorer-tree-grid-flow</artifactId>
+      <version>1.1.0</version>
+    </dependency> -->
+  </dependencies>
+
+  <build>
+    <finalName>gst</finalName>
+    <defaultGoal>jetty:run</defaultGoal>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty.version}</version>
+        <configuration>
+          <scanIntervalSeconds>1</scanIntervalSeconds>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-maven-plugin</artifactId>
+        <version>${vaadin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-frontend</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <!-- spring-boot:run intellij console 中文亂碼解決 -->
+        <configuration>
+          <fork>true</fork>
+          <!--增加jvm引數-->
+          <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:9003/manager/text</url>
+          <server>GST-Base</server>
+          <path>/gst</path>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <!-- Production mode is activated using -Pproduction -->
+      <id>production</id>
+      <properties>
+        <vaadin.productionMode>true</vaadin.productionMode>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>com.vaadin</groupId>
+          <artifactId>flow-server-production-mode</artifactId>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-maven-plugin</artifactId>
+            <version>${vaadin.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>build-frontend</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

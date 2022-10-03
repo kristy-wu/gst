@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+.idea
+target
+*.iml
+node_modules
+package.json
+package-lock.json
+webpack.generated.js
+=======
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+application.properties.gst
+application.properties.azure
+application.properties.local
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+>>>>>>> 4b663abb31a5728997f41294ccb293099aa8306b

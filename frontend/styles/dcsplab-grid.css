@@ -1,0 +1,36 @@
+@media (max-width: 479px) {
+  :host([theme~="mobile"]) #header {
+    display: none;
+  }
+
+  :host([theme~="mobile"]:not([theme~="no-border"])) {
+    border: none;
+  }
+}
+
+:host(vaadin-grid) [part="row"] [part~="header-cell"] {
+  /* background: linear-gradient(0deg, rgba(169,199,210,1) 0%, rgba(148,187,233,1) 100%); */
+  background: linear-gradient(0deg, rgba(160,194,220,1) 2%, rgba(133,168,210,1) 19%, rgba(169,199,210,1) 85%, rgba(151,189,230,1) 99%);
+  color: rgb(29,42,73);
+}
+
+/* highlight 製令: 急件，已生產 */
+.pmc-dashboard-mostatus-urgentreported {
+	color: white;
+	/* background-color: #921AFF; */
+	background-color: #AE57A4;
+}
+
+/* highlight 製令: 急件，未生產 */
+.pmc-dashboard-mostatus-urgent {
+  color: white;
+	background-color: red;
+}
+
+
+
+/*
+:host(vaadin-grid) [part="row"] [part~="header-cell"] {
+  background: rgb(216,228,238);
+  color: rgb(29,42,73);
+}*/
