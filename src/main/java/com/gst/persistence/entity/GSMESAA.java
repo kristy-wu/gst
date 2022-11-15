@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 
 /*
- * xxxxx(xxxx)
+ * 製程資料建立作業(CMSI08)
  * 資料表名稱: MESAA
  *
  * pk:COMPANY, AA001, AA002,
