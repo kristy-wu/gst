@@ -1,147 +1,108 @@
-﻿package com.gst.persistence.entity;
+package com.gst.domain;
 
-import com.gst.persistence.GSDomainEntityBase;
-import com.gst.persistence.key.GSMESAB_ID;
-
-import javax.persistence.*;
-
+import com.gst.context.GSAbstractObject;
 
 /*
- * xxxxx(xxxx)
- * 資料表名稱: MESAB
- *
- * pk:COMPANY, AB001, AB002, AB004
- */
+   MESAB xxxxx
+   key: companyId, AB001, AB002
+*/
 
-@Entity
-@Table(name = "MESAB")
-@IdClass(GSMESAB_ID.class)
-public class GSMESAB extends GSDomainEntityBase {
-    private static final long serialVersionUID = 5109098707159740588L;
+public class GSPMCManufactureOrderRoutingProcess extends GSAbstractObject {
 
-    // 0001 製令單別
-    @Id
-    @Column(name = "AB001", columnDefinition = "NCHAR(4)", nullable = false)
-    private String AB001;
+    private static final long serialVersionUID = 8852352441199193309L;
 
-    // 0002 製令單號
-    @Id
-    @Column(name = "AB002", columnDefinition = "NCHAR(11)", nullable = false)
-    private String AB002;
+    // 製令單別 AB001
+    private String manufactureOrderTypeId;
 
-    // 0003 加工順序
-    @Column(name = "AB003", columnDefinition = "NCHAR(4)")
+    // 製令單號 AB002
+    private String manufactureOrderId;
+
+    // 加工順序 AB003
     private String AB003;
 
-    // 0004 製程代號
-    @Column(name = "AB004", columnDefinition = "NVARCHAR(4)")
+    // 製程代號 AB004
     private String AB004;
 
-    // 0008 預計開工日
-    @Column(name = "AB008", columnDefinition = "NVARCHAR(8)")
+    // 預計開工日 AB008
     private String AB008;
 
-    // 0009 預計完工日
-    @Column(name = "AB009", columnDefinition = "NVARCHAR(8)")
+    // 預計完工日 AB009
     private String AB009;
 
-    // 0010 投入數量
-    @Column(name = "AB010", columnDefinition = "NUMERIC(16) default 0")
+    // 投入數量 AB010
     private Double AB010;
 
-    // 0011 完成數量
-    @Column(name = "AB011", columnDefinition = "NUMERIC(16) default 0")
+    // 完成數量 AB011
     private Double AB011;
 
-    // 0012 報廢數量
-    @Column(name = "AB012", columnDefinition = "NUMERIC(16,3) default 0")
+    // 報廢數量 AB012
     private Double AB012;
 
-    // 0013 重工投入
-    @Column(name = "AB013", columnDefinition = "NUMERIC(16,3) default 0")
+    // 重工投入 AB013
     private Double AB013;
 
-    // 0014 重工完成
-    @Column(name = "AB014", columnDefinition = "NUMERIC(16,3) default 0")
+    // 重工完成 AB014
     private Double AB014;
 
-    // 0015 撥轉數量
-    @Column(name = "AB015", columnDefinition = "NUMERIC(16,3) default 0")
+    // 撥轉數量 AB015
     private Double AB015;
 
-    // 0017 待轉數量
-    @Column(name = "AB017", columnDefinition = "NUMERIC(16,3) default 0")
+    // 待轉數量 AB017
     private Double AB017;
 
-    // 0022 標準人時(秒)
-    @Column(name = "AB022", columnDefinition = "NUMERIC(8,0) default 0")
+    // 標準人時(秒) AB022
     private Double AB022;
 
-    // 0023 實際人時(秒)
-    @Column(name = "AB023", columnDefinition = "NUMERIC(8,0) default 0")
+    // 實際人時(秒) AB023
     private Double AB023;
 
-    // 0024 製程敘述
-    @Column(name = "AB024", columnDefinition = "NVARCHAR(255) default ''")
+    // 製程敘述 AB024
     private String AB024;
 
-    // 0030 實際開工日
-    @Column(name = "AB030", columnDefinition = "NVARCHAR(8)")
+    // 實際開工日 AB030
     private String AB030;
 
-    // 0031 實際完工日
-    @Column(name = "AB031", columnDefinition = "NVARCHAR(8)")
+    // 實際完工日 AB031
     private String AB031;
 
-    // 0034 備註
-    @Column(name = "AB034", columnDefinition = "NVARCHAR(255) default ''")
-    private String AB034;
+    // 備註 AB034
+    private String remark;
 
-    // 0037 檢驗天數
-    @Column(name = "AB037", columnDefinition = "NUMERIC(3,0) default 0")
+    // 檢驗天數 AB037
     private Double AB037;
 
-    // 0038 投入包裝數量
-    @Column(name = "AB038", columnDefinition = "NUMERIC(16,0) default 0")
+    // 投入包裝數量 AB038
     private Double AB038;
 
-    // 0039 完成包裝數量
-    @Column(name = "AB039", columnDefinition = "NUMERIC(16,0) default 0")
+    // 完成包裝數量 AB039
     private Double AB039;
 
-    // 0040 報廢包裝數量
-    @Column(name = "AB040", columnDefinition = "NUMERIC(16,3) default 0")
+    // 報廢包裝數量 AB040
     private Double AB040;
 
-    // 0041 重工投入包裝
-    @Column(name = "AB041", columnDefinition = "NUMERIC(16,3) default 0")
+    // 重工投入包裝 AB041
     private Double AB041;
 
-    // 0042 重工完成包裝
-    @Column(name = "AB042", columnDefinition = "NUMERIC(16,3) default 0")
+    // 重工完成包裝 AB042
     private Double AB042;
 
-    // 0043 生產次數
-    @Column(name = "AB501", columnDefinition = "NUMERIC(16,3) default 0")
+    // 生產次數 AB501
     private Double AB501;
 
-    public GSMESAB() {
+    public String getManufactureOrderTypeId() {
+        return manufactureOrderTypeId;
     }
 
-    public String getAB001() {
-        return AB001;
+    public void setManufactureOrderTypeId(String manufactureOrderTypeId) {
+        this.manufactureOrderTypeId = manufactureOrderTypeId;
     }
 
-    public void setAB001(String AB001) {
-        this.AB001 = AB001;
+    public String getManufactureOrderId() {
+        return manufactureOrderId;
     }
 
-    public String getAB002() {
-        return AB002;
-    }
-
-    public void setAB002(String AB002) {
-        this.AB002 = AB002;
+    public void setManufactureOrderId(String manufactureOrderId) {
+        this.manufactureOrderId = manufactureOrderId;
     }
 
     public String getAB003() {
@@ -272,12 +233,12 @@ public class GSMESAB extends GSDomainEntityBase {
         this.AB031 = AB031;
     }
 
-    public String getAB034() {
-        return AB034;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setAB034(String AB034) {
-        this.AB034 = AB034;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Double getAB037() {
